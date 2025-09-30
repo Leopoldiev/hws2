@@ -1,0 +1,62 @@
+.message {
+    display: flex;
+    justify-content: flex-end; /* выравниваем справа */
+    margin: 10px 0;
+}
+
+.imageAndText {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    max-width: 70%;
+}
+
+.imageAndText img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.text {
+    position: relative;
+    background: #d1f1ff; /* голубоватый фон */
+    padding: 10px 14px;
+    border-radius: 12px;
+}
+
+.text:after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    bottom: 10px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-left: 6px solid #d1f1ff;
+    border-bottom: 6px solid transparent;
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-align: right;
+}
+
+.messageText {
+    margin-bottom: 6px;
+}
+
+.time {
+    font-size: 12px;
+    color: #777;
+    text-align: right;
+}
+
+.messageText {
+
+}
+
+.time {
+
+}
