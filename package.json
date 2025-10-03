@@ -1,6 +1,6 @@
 {
   "name": "hws2",
-  "homepage": "http://Leopoldiev.github.io/hws2",
+  "homepage": "http://leopoldiev.github.io/hws2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -32,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -52,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
   }
 }
