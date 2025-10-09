@@ -3,22 +3,25 @@ import Greeting from './Greeting'
 import {UserType} from './HW3'
 
 type GreetingContainerPropsType = {
-    users: Array<UserType> // need to fix any
-    addUserCallback: (name: UserType['name']) => void// need to fix any
+    users: Array<UserType>
+    addUserCallback: (name: UserType['name']) => void
 }
 
-export const pureAddUser = (name: UserType['name'], setError: (value: string) => void, setName: (value: string) => void, addUserCallback: (name: UserType['name']) => void) => {
-    if (name.trim().length === 0) setError('Error name too short');
-    setName(name);
-    addUserCallback(name);
-    // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
+export const pureAddUser = (name: UserType['name'], setError:React.Dispatch<React.SetStateAction<string>>, setName: React.Dispatch<React.SetStateAction<string>>, addUserCallback: (name: UserType['name']) => void):void => {
+    if (name.trim().length === 0) {
+        setError('Error name too short')
+    } else {
+        addUserCallback(name.trim())
+        setName('')
+    }
+
 }
 
-export const pureOnBlur = (name:  UserType['name'], setError: (value: string) => void) => { // если имя пустое - показать ошибку
+export const pureOnBlur = (name:  UserType['name'], setError:React.Dispatch<React.SetStateAction<string>>):void => { // если имя пустое - показать ошибку
     if(name.trim().length === 0) setError('Error name too short');
 }
 
-export const pureOnEnter = (e:KeyboardEvent<HTMLInputElement>, addUser: ()=>void) => { // если нажата кнопка Enter - добавить
+export const pureOnEnter = (e:KeyboardEvent<HTMLInputElement>, addUser: ()=>void):void => { // если нажата кнопка Enter - добавить
 if(e.key=== 'Enter') addUser()
 }
 
@@ -52,7 +55,8 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const totalUsers = users.length // need to fix
-    const lastUserName = users[users.length-1].name // need to fix
+    const lastUserName: string | undefined = users.length > 0 ? users[users.length - 1].name : undefined
+
 
     return (
         <Greeting
